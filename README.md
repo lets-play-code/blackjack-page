@@ -1,5 +1,5 @@
 # blackjack-page
-
+Mob code example
 ## Project setup
 ```
 npm install
