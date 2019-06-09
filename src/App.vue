@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Game/>
-    <h4><a @click="taggleHello">Hello</a></h4>
+    <h4><a @click="taggleHello">Hello Vue</a></h4>
     <div v-if="showHello">
       <img alt="Vue logo" src="./assets/logo.png">
       <HelloWorld msg="Welcome to Your Vue.js App"/>

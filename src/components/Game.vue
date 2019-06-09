@@ -2,16 +2,18 @@
     <div>
         <h1> Start Play Black Jack </h1>
         <button v-on:click='getCards'>Start</button>
-        <p><span class='card' v-html='cards'/></p>
+        <p><Card v-bind:code='cards'/></p>
     </div>
 </template>
 
 <script>
-const SERVER = 'http://localhost:8080'
-const CARD = '/card'
-const CARD_HEAD = '&#x1F0'
+const CARD = 'card'
+import Card from './Card.vue'
 export default {
     name: 'Game',
+    components: {
+        Card
+    },
     data () {
         return {
             cards: ''
@@ -19,9 +21,8 @@ export default {
     },
     methods: {
         getCards () {
-            let url = SERVER + CARD;
-            this.$http.get(url).then(response => {
-                this.cards = CARD_HEAD + response.bodyText
+            this.$http.get(CARD).then(response => {
+                this.cards = response.bodyText
             }, error => {
                 error
             });
@@ -29,10 +30,3 @@ export default {
     }
 }
 </script>
-<style <style scoped>
-    .card {
-        font-size: 90pt
-    }
-
-</style>
-
