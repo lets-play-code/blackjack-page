@@ -2,12 +2,15 @@
     <div>
         <h1> Start Play Black Jack </h1>
         <button v-on:click='getCards'>Start</button>
-        <p><Card v-bind:code='cards'/></p>
+        <p>Host: </p>
+        <p><Card v-for="card in game.host" v-bind:code='card'/></p>
+        <p>Player: </p>
+        <p><Card v-for="card in game.player" v-bind:code='card'/></p>
     </div>
 </template>
 
 <script>
-const CARD = 'card'
+const START_GAME = 'startgame'
 import Card from './Card.vue'
 export default {
     name: 'Game',
@@ -16,13 +19,13 @@ export default {
     },
     data () {
         return {
-            cards: ''
+            game: ''
         }
     },
     methods: {
         getCards () {
-            this.$http.get(CARD).then(response => {
-                this.cards = response.bodyText
+            this.$http.post(START_GAME).then(response => {
+                this.game = response.data
             }, error => {
                 error
             });
