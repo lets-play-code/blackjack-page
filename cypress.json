@@ -1,1 +1,4 @@
-{}
+{
+    "baseUrl": "http://localhost:8090",
+    "ignoreTestFiles": "/**/integration/*/*.js"
+}

@@ -3,9 +3,9 @@
         <h1> Start Play Black Jack </h1>
         <button v-on:click='getCards'>Start</button>
         <p>Host: </p>
-        <p><Card v-for="card in game.host" v-bind:code='card'/></p>
+        <p><Card v-for="card in game.host" :key='card' :code='card'/></p>
         <p>Player: </p>
-        <p><Card v-for="card in game.player" v-bind:code='card'/></p>
+        <p><Card v-for="card in game.player" :key='card' :code='card'/></p>
     </div>
 </template>
 
