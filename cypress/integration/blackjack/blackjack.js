@@ -9,12 +9,12 @@ Then(`I can see text {string}`, (text) => {
     cy.get('#app').should('contain', text);
 })
 
-When(`I click {string} button`, () => {
-    cy.get('button').click();
+When(`I click {string} button`, (text) => {
+    cy.get('button').contains(text).click();
 })
 
 Then(`I can see {string} button`, (text) => {
-    cy.get('button').should('have.text', text);
+    cy.get('button').contains(text).should('exist');
 })
 
 Then(`I can see {int} card(s)`, (num) => {
