@@ -1,4 +1,3 @@
 {
-    "baseUrl": "http://localhost:8090",
-    "ignoreTestFiles": "/**/integration/*/*.js"
+  "pluginsFile": "tests/e2e/plugins/index.js"
 }
