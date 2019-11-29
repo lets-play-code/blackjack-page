@@ -6,9 +6,9 @@
         <button v-on:click='closeDeal'>CloseDeal</button>
         <h1 v-if="this.result">  WINNER : {{ this.result.host.winner ? 'HOST' : 'PLAYER'}}</h1>
         <p>Host: </p>
-        <p><Card v-for="card in game.host" :key='card' :code='card'/></p>
+        <p><Card v-for="card in game.host.cards" :key='card' :code='card'/></p>
         <p>Player: </p>
-        <p><Card v-for="card in game.player" :key='card' :code='card'/></p>
+        <p><Card v-for="card in game.player.cards" :key='card' :code='card'/></p>
     </div>
 </template>
 
