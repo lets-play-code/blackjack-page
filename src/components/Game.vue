@@ -24,7 +24,7 @@ export default {
     },
     data () {
         return {
-            game: '',
+            game: {host:[], player:[]},
             result: null
         }
     },
@@ -47,7 +47,6 @@ export default {
         closeDeal () {
             this.$http.post(CLOSE_DEAL).then(response => {
                 this.result = response.data
-                this.game.host = this.result.host.cards
             }, error => {
                 error
             });
