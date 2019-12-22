@@ -11,6 +11,9 @@ Feature: Black Jack
         Then I can see host cards '🂡🂣'
         And I can see player cards '🂢🂲'
     Scenario: show winner
+        Given server response data 'startgame' '{"host": {"cards":["A1"]},"player":{"cards":["A2","B2"]}}' 
         Given server response data 'closedeal' '{"host": {"cards":["A1","A3"],"winner":true},"player":{"cards":["A2","B2"],"winner":false}}'
-        When I close deal
+        When I start game
+        And I close deal
         Then I can see text 'winner is host'
+        And I can see host cards '🂡🂣'

@@ -4,7 +4,7 @@
         <button v-on:click='getCards'>Start</button>
         <button v-on:click='deal'>Deal</button>
         <button v-on:click='closeDeal'>CloseDeal</button>
-        <h1 v-if="this.result">  winner is {{ this.result.host.winner ? 'host' : 'player'}}</h1>
+        <h1 v-if="this.game">  winner is {{ this.game.host.winner ? 'host' : 'player'}}</h1>
         <div id="host">
         <p>Host: </p>
         <p><Card v-for="card in game.host.cards" :key='card' :code='card'/></p>
@@ -28,13 +28,12 @@ export default {
     },
     data () {
         return {
-            game: {host:[], player:[]},
-            result: null
+            game: {host:[], player:[]}
         }
     },
     methods: {
         getCards () {
-            this.result = null
+        
             this.$http.post(START_GAME).then(response => {
                 this.game = response.data
             }, error => {
@@ -50,7 +49,7 @@ export default {
         },
         closeDeal () {
             this.$http.post(CLOSE_DEAL).then(response => {
-                this.result = response.data
+                this.game = response.data
             }, error => {
                 error
             });
