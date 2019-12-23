@@ -10,6 +10,7 @@ Feature: Black Jack
         When I start game
         Then I can see host cards '🂡🂣'
         And I can see player cards '🂢🂲'
+        And game is runing
     Scenario: show winner
         Given server response data 'startgame' '{"host": {"cards":["A1"]},"player":{"cards":["A2","B2"]}}' 
         Given server response data 'closedeal' '{"host": {"cards":["A1","A3"],"winner":true},"player":{"cards":["A2","B2"],"winner":false}}'

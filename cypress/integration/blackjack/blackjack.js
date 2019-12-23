@@ -7,7 +7,11 @@ When('I open game hall page', () => {
 
 Then(`I can see text {string}`, (text) => {
     cy.get('#app').should('contain', text);
-})
+})  
+
+Then(`game is runing`, (text) => {
+    cy.get('#gameResult').should('contain', "running");
+})  
 
 When(`I start game`, (text) => {
     cy.get('button').contains('Start').click();

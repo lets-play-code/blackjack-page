@@ -4,7 +4,11 @@
         <button v-on:click='getCards'>Start</button>
         <button v-on:click='deal'>Deal</button>
         <button v-on:click='closeDeal'>CloseDeal</button>
-        <h1 v-if="this.game">  winner is {{ this.game.host.winner ? 'host' : 'player'}}</h1>
+        <h1 id="gameResult" > 
+            <div v-if="this.game.host.winner || this.game.player.winner "> winner is {{ this.game.host.winner ? 'host' : 'player'}}</div>
+            <div v-else>running</div>
+        </h1>
+
         <div id="host">
         <p>Host: </p>
         <p><Card v-for="card in game.host.cards" :key='card' :code='card'/></p>
