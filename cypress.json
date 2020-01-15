@@ -1,4 +1,4 @@
 {
   "baseUrl": "http://localhost:18090",
-  "testFiles": "**/*.{feature,features}"
+  "testFiles": "**/*.{feature,features,spec}"
 }

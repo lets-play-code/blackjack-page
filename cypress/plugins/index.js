@@ -12,6 +12,9 @@
 // the project's config changing)
 
 const cucumber = require('cypress-cucumber-preprocessor').default
+const pact_tasks = require("./cypress-pact.js")
+
 module.exports = (on, config) => {
   on('file:preprocessor', cucumber())
+  on('task', pact_tasks(8080))
 }
